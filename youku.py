@@ -43,7 +43,8 @@ def opencurl( strobj ):
 		print 'no'
 	
 def objcurl(strobj):#把每一集下载到指定目录
-	flag = os.system('python3 /home/pi/Git/you-get/you-get' + ' ' + '-o '+path+ ' ' + strobj )
+#	flag = os.system('python3 /home/pi/Git/you-get/you-get' + ' ' + '-o '+path+ ' ' + strobj )
+	flag = os.system('you-get' + ' ' + '-o '+path+ ' ' + strobj )
 	if flag != 0:
 		print '========================='
 		print 'errr' +' ' +strobj
@@ -54,7 +55,8 @@ if len(sys.argv)!=3:
 	print 'useage:py youkufid.py + path + 剧名'
 	exit (0)
 else:
-	path='/media/pi/sqf_500g/'+sys.argv[1]
+#	path='/media/pi/sqf_500g/'+sys.argv[1]
+	path=sys.argv[1]
 	base_curl='http://www.soku.com/search_video/q_'+sys.argv[2]
 if not os.path.exists(path): # 判断目录是否存在
 	os.makedirs(path)  # 创建多级目录
